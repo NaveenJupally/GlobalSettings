@@ -1,0 +1,147 @@
+package com.automate.entity.globalsettings;
+
+import java.io.Serializable;
+import javax.persistence.*;
+import java.sql.Timestamp;
+
+
+/**
+ * The persistent class for the t_gs_gl_sub_group database table.
+ * 
+ */
+@Entity
+@Table(name="t_gs_gl_sub_group")
+@NamedQuery(name="TGsGlSubGroup.findAll", query="SELECT t FROM TGsGlSubGroup t")
+public class TGsGlSubGroup implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name="gs_gl_sub_group_id")
+	private int gsGlSubGroupId;
+
+	@Column(name="created_at")
+	private Timestamp createdAt;
+
+	@Column(name="created_by")
+	private String createdBy;
+
+	@Column(name="gl_group_name")
+	private String glGroupName;
+
+	@Column(name="gl_sub_group_name")
+	private String glSubGroupName;
+
+	@Column(name="updated_at")
+	private Timestamp updatedAt;
+
+	@Column(name="updated_by")
+	private String updatedBy;
+	
+	@Column(name="user_id")
+	private int userId;
+	
+	@Column(name = "parent_org_id")
+	private int parentOrgId;
+	
+	@Column(name = "status")
+	private String status;
+	
+	
+
+	//bi-directional many-to-one association to TGsOrganaization
+	/*@ManyToOne
+	@JoinColumn(name="parent_org_id")
+	private TGsOrganaization TGsOrganaization; */
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getParentOrgId() {
+		return parentOrgId;
+	}
+
+	public void setParentOrgId(int parentOrgId) {
+		this.parentOrgId = parentOrgId;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public TGsGlSubGroup() {
+	}
+
+	public int getGsGlSubGroupId() {
+		return this.gsGlSubGroupId;
+	}
+
+	public void setGsGlSubGroupId(int gsGlSubGroupId) {
+		this.gsGlSubGroupId = gsGlSubGroupId;
+	}
+
+	public Timestamp getCreatedAt() {
+		return this.createdAt;
+	}
+
+	public void setCreatedAt(Timestamp createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public String getCreatedBy() {
+		return this.createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getGlGroupName() {
+		return this.glGroupName;
+	}
+
+	public void setGlGroupName(String glGroupName) {
+		this.glGroupName = glGroupName;
+	}
+
+	public String getGlSubGroupName() {
+		return this.glSubGroupName;
+	}
+
+	public void setGlSubGroupName(String glSubGroupName) {
+		this.glSubGroupName = glSubGroupName;
+	}
+
+	public Timestamp getUpdatedAt() {
+		return this.updatedAt;
+	}
+
+	public void setUpdatedAt(Timestamp updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
+	public String getUpdatedBy() {
+		return this.updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	/*public TGsOrganaization getTGsOrganaization() {
+		return this.TGsOrganaization;
+	}
+
+	public void setTGsOrganaization(TGsOrganaization TGsOrganaization) {
+		this.TGsOrganaization = TGsOrganaization;
+	}*/
+
+}
